@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% for d in data %}
+        {{ d.title }}
+        {{ d.description }}
+        {{ d.detailed_description }}
+        {{ d.included }}
+        {{ d.unincluded }}
+        {{ d.image }}
+        {# {{ d.images }}#}
+        {{ d.distance }}
+        {#  {{ d.category }} #}
+        {#  {{ d.service }} #}
+
+
+    {% endfor %}
+{% endblock %}
+

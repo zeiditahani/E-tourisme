@@ -1,0 +1,107 @@
+nelmio_api_doc:
+    documentation:
+        servers:
+            - url: https://127.0.0.1:8000/api
+              description: backend API over HTTPS
+        info:
+            title: symfonyApp
+            contact: zeiditahani@gmail.com
+            description: This is an awesome app!
+            version: 1.0.0
+        areas: # to filter documented areas
+             path_patterns:
+                - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
+        paths:
+          /widget/{max}:
+            parameters:
+              - name: "max"
+                in: "path"
+                required: true
+                schema:
+                  type: integer
+                  format: int32
+            get:
+              tags:
+                - blog
+              responses:
+                '200':
+                  description: "success"
+                  content:
+                    "application/json":
+                      schema:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/blog"
+
+
+
+
+          /list:
+            get:
+              tags:
+                - blog
+              responses:
+                '200':
+                  description: "success"
+                  content:
+                    "application/json":
+                      schema:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/blog"
+          /blog/{id}:
+            parameters:
+              - name: "id"
+                in: "path"
+                required: true
+                schema:
+                  type: integer
+                  format: int32
+            get:
+              tags:
+                - blog
+              responses:
+                '200':
+                  description: "success"
+                  content:
+                    "application/json":
+                      schema:
+                          $ref: "#/components/schemas/blog"
+
+
+        tags:
+             - name: blog
+               description : blog group
+             - name: hotel
+               description: hotel group
+             - name: agency
+               description: agency group
+             
+
+
+        components:
+          schemas:
+            blog:
+              type: object
+              properties:
+                title:
+                  type: string
+                  default: widget's title
+                description:
+                  type: text
+                  default: description default
+                image:
+                  type: string
+                  default: img1
+                date:
+                  type: date
+
+
+             #securitySchemes:
+                  #Bearer:
+                     #type: http
+                     #scheme: bearer
+                     #bearerFormat: JWT
+
+        #security:
+            #- Bearer: [ ]

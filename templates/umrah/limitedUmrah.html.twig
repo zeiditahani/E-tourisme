@@ -1,0 +1,130 @@
+{% block body %}
+    {% for d in data %}
+        {{ d.title }}
+        {{ d.description }}
+        {{ d.detailed_description }}
+        {{ d.included }}
+        {{ d.unincluded }}
+        {{ d.image }}
+        {# {{ d.images }}#}
+        {#  {{ d.category }} #}
+        {#  {{ d.service }} #}
+
+
+    {% endfor %}
+    <!-- Start Call To Action  -->
+
+    <div class="rbt-callto-action-area">
+        <div class="rbt-callto-action rbt-cta-default style-4 variation-2 bg-gradient-6 mt--75">
+            <div class="container">
+                <div class="row align-items-center content-wrapper row--30 mt_dec--30 position-relative">
+                    <div class="col-lg-8 mt--30 offset-lg-3">
+                        <div class="inner">
+                            <div class="content text-left">
+                                <h2 class="title" data-sal="slide-up">{{ data[0].title }}</h2>
+                                <h5>Umrah Au Depart De Tunis: Plusieures Dates Disponibles</h5>
+                                <p>Makkah-Arabie Saoudite</p>
+                                <div class="call-to-btn text-start mt--30">
+                                    <a class="rbt-btn btn-gradient hover-icon-reverse" href="#">
+                                        <span class="icon-reverse-wrapper">
+                                            <span class="btn-text">Voir L'offre</span>
+                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thumbnail">
+                        <img class="w-100" src="assets/images/shape/cta-2.png" alt="{{ data[0].title }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rbt-team-area bg-color-extra2 rbt-section-gap">
+        <div class="container">
+
+            <div class="row row--15 mt_dec--30">
+                <!-- Start Single Team  -->
+                {% for d in data %}
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="team">
+                        <div class="thumbnail"><img src="assets/images/team/team-05.jpg" alt="{{ d.title }}">
+                        </div>
+                        <div class="content">
+                            <h4 class="title">{{ d.title }}</h4>
+                            <p class="designation">Depertment Head</p>
+                        </div>
+                        <ul class="social-icon">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Single Team  -->
+
+                <!-- Start Single Team  -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="team">
+                        <div class="thumbnail"><img src="assets/images/team/team-09.jpg" alt="Blog Images">
+                        </div>
+                        <div class="content">
+                            <h4 class="title">Rafiq Bali</h4>
+                            <p class="designation">Depertment Head</p>
+                        </div>
+                        <ul class="social-icon">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Single Team  -->
+
+                <!-- Start Single Team  -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="team">
+                        <div class="thumbnail"><img src="assets/images/team/team-03.jpg" alt="Blog Images">
+                        </div>
+                        <div class="content">
+                            <h4 class="title">Fatima Usa</h4>
+                            <p class="designation">Depertment Head</p>
+                        </div>
+                        <ul class="social-icon">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Single Team  -->
+
+                <!-- Start Single Team  -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="team">
+                        <div class="thumbnail"><img src="assets/images/team/team-07.jpg" alt="Blog Images">
+                        </div>
+                        <div class="content">
+                            <h4 class="title">John Due</h4>
+                            <p class="designation">Depertment Head</p>
+                        </div>
+                        <ul class="social-icon">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Single Team  -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End Call To Action  -->
+{% endblock %}

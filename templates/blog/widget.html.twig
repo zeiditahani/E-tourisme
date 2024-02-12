@@ -1,0 +1,97 @@
+
+{% block body %}
+    <div class="col-lg-4">
+        <aside class="rbt-sidebar-widget-wrapper rbt-gradient-border">
+
+            <!-- Start Widget Area  -->
+            <div class="rbt-single-widget rbt-widget-search">
+                <div class="inner">
+                    <form action="#" class="rbt-search-style-1">
+                        <input type="text" placeholder="Search Courses">
+                        <button class="search-btn"><i class="feather-search"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!-- End Widget Area  -->
+
+            <!-- Start Widget Area  -->
+            <div class="rbt-single-widget rbt-widget-recent">
+                <div class="inner">
+                    <h4 class="rbt-widget-title">Recent Post</h4>
+                    <ul class="rbt-sidebar-list-wrapper recent-post-list">
+                        <li>
+                            <!-- Start Category Box Layout  -->
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
+                                    {% for d in data %}
+                                        <div class="inner">
+                                            <div class="thumbnail">
+                                                <img src="assets/images/category/image/web-design.jpg" alt=" {{ d.title }}">
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="title"> {{ d.title }}</h5>
+                                                <div class="read-more-btn">
+                                                    <span class="rbt-btn-link">15 Courses<i class="feather-arrow-right"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- End Widget Area  -->
+
+            <!-- Start Widget Area  -->
+            <div class="rbt-single-widget rbt-widget-recent">
+                <div class="inner">
+                    <h4 class="rbt-widget-title">Popular Post</h4>
+                    <ul class="rbt-sidebar-list-wrapper recent-post-list">
+                        <li>
+                            <!-- Start Category Box Layout  -->
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                                <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
+                                    {% for d in data %}
+                                        <div class="inner">
+                                            <div class="thumbnail">
+                                                <img src="assets/images/category/image/web-design.jpg" alt=" {{ d.title }}">
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="title"> {{ d.title }}</h5>
+                                                <div class="read-more-btn">
+                                                    <span class="rbt-btn-link">15 Courses<i class="feather-arrow-right"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- End Widget Area  -->
+
+            <!-- Start Widget Area  -->
+            <div class="rbt-single-widget rbt-widget-tag">
+                <div class="inner">
+                    <h4 class="rbt-widget-title">Tags</h4>
+                    <div class="rbt-sidebar-list-wrapper rbt-tag-list">
+                        <a href="{{ path('app_cruise') }}">Croisière</a>
+                        <a href="{{ path('app_umrah') }}">Umrah</a>
+                        <a href="{{ path('app_travel') }}">Voyage</a>
+                        <a href="{{ path('app_hotel') }}">Hotels</a>
+                        <a href="{{ path('app_excursion') }}">Excursion</a>
+                        <a href="{{ path('app_hiking') }}">Rondonnée</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Widget Area  -->
+        </aside>
+    </div>
+
+{% endblock %}

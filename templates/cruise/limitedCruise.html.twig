@@ -1,0 +1,40 @@
+{% block body %}
+
+        {% for d in data %}
+            {{ d.title }}
+            {{ d.description }}
+            {{ d.detailed_description }}
+            {{ d.included }}
+            {{ d.unincluded }}
+            {{ d.image }}
+
+        {% endfor %}
+
+    <div class="rbt-about-area bg-color-white rbt-section-gap" id="about">
+        <div class="container">
+            {% for d in data %}
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <div class="inner">
+                        <div class="section-title text-start">
+                            <span class="subtitle bg-primary-opacity">About Histudy</span>
+                            <h2 class="title">{{ d.title }}</h2>
+                            <p class="description mt--20"><strong>{{ d.title }}</strong>{{ d.description }} </p>
+                            <div class="read-more-btn mt--40">
+                                <a class="rbt-btn btn-gradient rbt-switch-btn rbt-switch-y" href="#">
+                                    <span data-text="About Histudy">About Histudy</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="content">
+                        <img src="assets/images/about/about-06.png" alt="{{ d.title }}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

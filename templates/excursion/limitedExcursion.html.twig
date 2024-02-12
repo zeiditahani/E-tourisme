@@ -1,0 +1,50 @@
+{% block body %}
+    {% for d in data %}
+        {{ d.title }}
+        {{ d.description }}
+        {{ d.detailed_description }}
+        {{ d.included }}
+        {{ d.unincluded }}
+        {{ d.image }}
+
+    {% endfor %}
+    <div class="row mb--55 g-5 align-items-end">
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="section-title text-start">
+                <span class="subtitle bg-pink-opacity">Top News</span>
+                <h2 class="title">Have a look on <span class="color-primary">our News</span></h2>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="load-more-btn text-start text-md-end">
+                <a class="rbt-btn rbt-switch-btn bg-primary-opacity" href="blog.html">
+                    <span data-text="View All News">View All News</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Start Card Area -->
+    <div class="row g-5">
+        <!-- Start Single Card  -->
+        {% for d in data %}
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <div class="rbt-card variation-02 rbt-hover">
+                <div class="rbt-card-img">
+                    <a href="course-details.html">
+                        <img src="assets/images/blog/blog-grid-01.jpg" alt="{{ d.title }}"> </a>
+                </div>
+                <div class="rbt-card-body">
+                    <h5 class="rbt-card-title"><a href="course-details.html">{{ d.title }}</a></h5>
+                    <p class="rbt-card-text">{{ d.description }}</p>
+                    <div class="rbt-card-bottom">
+                        <a class="transparent-button" href="course-details.html">Learn
+                            More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- End Single Card  -->
+    </div>
+    <!-- End Card Area -->
+{% endblock %}
