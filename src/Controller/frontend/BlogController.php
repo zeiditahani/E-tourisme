@@ -30,4 +30,13 @@ class BlogController extends AbstractController
 
 
 
+    #[Route('/detailBlog/{id_blog}', name: 'app_detailBlog',methods: 'GET')]
+    public function detailBlog(OfferService $offerService): Response
+    {
+        return $this->render('blog/detailBlog.html.twig', [
+            'data' => json_decode($offerService->getDetailBlog(2)),
+
+        ]);
+    }
+
 }

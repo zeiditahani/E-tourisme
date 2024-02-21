@@ -1,79 +1,72 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-        {% for d in data %}
-                {{ d.title }}
-                {{ d.address }}
-                {{ d.email }}
-                {{ d.phone }}
-                {{ d.logo }}
-        {% endfor %}
 
-    <!-- Start breadcrumb Area -->
-    <!--div class="rbt-breadcrumb-default ptb--100 ptb_md--50 ptb_sm--30 bg-gradient-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-inner text-center">
-                        <h1 class="title">Découvrez des destinations exceptionnelles et organisez votre voyage en toute simplicité.</h1>
-                        <ul class="page-list">
-                            <li class="rbt-breadcrumb-item"><a href="{{ path('app_test_homepage') }}">Home</a></li>
-                            <li>
-                                <div class="icon-right"><i class="feather-chevron-right"></i></div>
-                            </li>
-                            <li class="rbt-breadcrumb-item active">Agences De Voyage</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    < End Breadcrumb Area >
-    < Start Service Area >
-    <div class="rbt-rbt-card-area bg-color-white rbt-section-gap">
-        <div class="container">
-            <div class="row row--15 mt_dec--30">
-                <Start Single Card >
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mt--30">
-                    <div class="rbt-flipbox variation-2">
 
-                        <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-1">
-                            <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                                <div class="front-thumb w-100">
-                                    <img src="assets/images/flip/kindergarten-01-front.jpg" alt="card-icon">
-                                </div>
-                                <div class="content">
-                                    <h2 class="title"></h2>
-                                    <ul class="rbt-list-style-3">
-                                        <li><i class="fa fa-phone"></i> </li>
-                                        <li><i class="fa fa-envelope"></i> </li>
-                                        <li><i class="fa fa-map-marker"></i> </li>
-                                    </ul>
-                                    <a class="rbt-btn-link stretched-link" >Learn More<i class="feather-arrow-right"></i></a>
-                                </div>
-                            </div>
+        <!-- Start Service Area -->
+        <div class="rbt-rbt-card-area bg-color-extra2 rbt-section-gap">
+                <div class="container">
+                        <div class="breadcrumb-content-top text-center">
+                                        <h1 class="entry-title e-t page-title">AGENCES</h1>
 
-                            <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                                <div class="flip-back-top">
-                                    <div class="back-thumb w-100">
-                                        <img class="w-100 radius-10" src="assets/images/flip/kindergarten-01-back.jpg" alt="card-icon">
+                                        <p class="mb--20">DÉCOUVREZ TOUTES LES AGENCES</p>
+                                        <ul class="page-list">
+                                                <li class="rbt-breadcrumb-item"><a href="{{ path('app_test_homepage') }}">Home</a></li>
+                                                <li>
+                                                        <div class="icon-right"><i class="feather-chevron-right"></i></div>
+                                                </li>
+                                                <li class="rbt-breadcrumb-item active">Agences</li>
+                                        </ul>
+                        </div>
+
+                    <div class="rbt-putchase-guide-area rbt-section-gap">
+                        <div class="container">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p>Dans cet espace, vous pouvez découvrir les agences à travers des contenus exclusifs ! Actualités et Offres . Trouvez le meilleur partenaire :</p>
+
+                                        </div>
                                     </div>
-                                    <p>Babies enjoy classrooms made for exploring with teachers who support today’s big milestones.</p>
                                 </div>
-                                <a class="rbt-btn rbt-switch-btn btn-white btn-sm" >
-                                    <span data-text="Learn More">Learn More</span>
-                                </a>
-                            </div>
                         </div>
                     </div>
+
+
+                    <div class="col-lg-10 offset-lg-1">
+
+                                <!-- Start Agency Card  -->
+                             {% for d in data %}
+                                <div class="col-xl-6 col-md-6 col-sm-6 col-12 mt--30">
+                                        <div class="rbt-service rbt-service-2 variation-2 rbt-hover-02">
+                                                <div class="inner">
+                                                        <div class="content">
+                                                                <h2 class="title">{{ d.title }}</h2>
+                                                                <p>{{ d.address }}</p>
+                                                                <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                                <ul class="rbt-list-style-3">
+                                                                                        <li><i class="fa fa-phone"></i>{{ d.phone }}</li>
+                                                                                        <li><i class="fa fa-envelope"></i>{{ d.email }}</li>
+                                                                                </ul>
+                                                                        </div>
+                                                                </div>
+                                                                <a class="rbt-btn btn-gradient hover-icon-reverse btn-sm mt--30" href="#">
+                                                                        <span class="icon-reverse-wrapper">
+                                                                                 <span class="btn-text">Découvrir</span>
+                                                                                 <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                                                 <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                                        </span>
+                                                                </a>
+                                                        </div>
+                                                        <div class="thumbnail">
+                                                                <img src="{{ asset('assets/uploads/' ~ d.logo) }}" alt="{{ d.title }}">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                             {% endfor %}
+                                <!-- End Agency Card  -->
+                        </div>
                 </div>
-                <End Single Card  >
-
-
-
-
-
-            </div>
         </div>
-    </div>
-    < End Service Area -->
 {% endblock %}

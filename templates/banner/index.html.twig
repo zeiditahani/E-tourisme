@@ -80,17 +80,15 @@
         </div>
 
         <div class="swiper rbt-swiper-thumb rbtmySwiperThumb">
+
             <div class="swiper-wrapper">
+                {% for d in data %}
                 <div class="swiper-slide">
-                    <img src="{{ asset('assets/uploads/' ~ data[0].image) }}" alt="{{ data[0].description }}" title="{{ data[0].title }}"/>
+                    <img src="{{ asset('assets/uploads/' ~ d.image) }}" alt="{{ d.title }}" title="{{ d.description }}"/>
                 </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('assets/uploads/' ~ data[1].image) }}" alt="{{ data[1].description }}" title="{{ data[1].title }}"/>
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('assets/uploads/' ~ data[2].image) }}" alt="{{ data[2].description }}" title="{{ data[2].title }}"/>
-                </div>
+                {% endfor %}
             </div>
+
         </div>
         <!-- End Banner Area  -->
     </div>
