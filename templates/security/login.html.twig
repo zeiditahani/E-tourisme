@@ -1,20 +1,100 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Log in!{% endblock %}
-
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+<!-- CSS
+============================================ -->
+<link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/vendor/slick.css">
+<link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+<link rel="stylesheet" href="assets/css/plugins/sal.css">
+<link rel="stylesheet" href="assets/css/plugins/feather.css">
+<link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css">
+<link rel="stylesheet" href="assets/css/plugins/euclid-circulara.css">
+<link rel="stylesheet" href="assets/css/plugins/swiper.css">
+<link rel="stylesheet" href="assets/css/plugins/magnify.css">
+<link rel="stylesheet" href="assets/css/plugins/odometer.css">
+<link rel="stylesheet" href="assets/css/plugins/animation.css">
+<link rel="stylesheet" href="assets/css/plugins/bootstrap-select.min.css">
+<link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
+<link rel="stylesheet" href="assets/css/plugins/magnigy-popup.min.css">
+<link rel="stylesheet" href="assets/css/plugins/plyr.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+<!-- JS
+============================================ -->
+<!-- Modernizer JS -->
+<script src="assets/js/vendor/modernizr.min.js"></script>
+<!-- jQuery JS -->
+<script src="assets/js/vendor/jquery.js"></script>
+<!-- Bootstrap JS -->
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+<!-- sal.js -->
+<script src="assets/js/vendor/sal.js"></script>
+<script src="assets/js/vendor/swiper.js"></script>
+<script src="assets/js/vendor/magnify.min.js"></script>
+<script src="assets/js/vendor/jquery-appear.js"></script>
+<script src="assets/js/vendor/odometer.js"></script>
+<script src="assets/js/vendor/backtotop.js"></script>
+<script src="assets/js/vendor/isotop.js"></script>
+<script src="assets/js/vendor/imageloaded.js"></script>
+
+<script src="assets/js/vendor/wow.js"></script>
+<script src="assets/js/vendor/waypoint.min.js"></script>
+<script src="assets/js/vendor/easypie.js"></script>
+<script src="assets/js/vendor/text-type.js"></script>
+<script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+<script src="assets/js/vendor/bootstrap-select.min.js"></script>
+<script src="assets/js/vendor/jquery-ui.js"></script>
+<script src="assets/js/vendor/magnify-popup.min.js"></script>
+<script src="assets/js/vendor/paralax-scroll.js"></script>
+<script src="assets/js/vendor/paralax.min.js"></script>
+<script src="assets/js/vendor/countdown.js"></script>
+<script src="assets/js/vendor/plyr.js"></script>
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+<!-- Page content -->
+<div
+    class="page-content">
+
+    <!-- Main content -->
+    <div
+        class="content-wrapper">
+
+        <!-- Inner content -->
+        <div
+            class="content-inner">
+
+            <!-- Content area -->
+            <div
+                class="content d-flex justify-content-center align-items-center">
+
+                <!-- Login form -->
+                  <form action="{{ path('admin') }}" method="post">
+                 {% if error %}
+                      <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+   {#{% if app.user %}#} 
+       {#<div class="mb-3">#} 
+           {#You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>#} 
+        {#</div>#}
+    {#{% endif %}#}
+
+    <div class="card mb-0">
+        <div class="card-body">
+
+            
+            <div class="text-center mb-3">
+                <div class="d-inline-flex align-items-center justify-content-center mb-4 mt-2">
+                    <img src="/assets/images/logo_icon.svg" class="h-48px" alt="">
+                </div>
+                <h5 class="mb-0">Connectez-vous à votre compte</h5>
+                <span class="d-block text-muted">Entrez vos coordonnées ci-dessous</span>
+            </div>
+
+            
+            <div class="mb-3">
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     <label for="inputPassword">Password</label>
@@ -27,5 +107,12 @@
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
+</div>
+</div>
+</div>
 </form>
+            </div>
+        </div>
+    </div>
+</div>            
 {% endblock %}

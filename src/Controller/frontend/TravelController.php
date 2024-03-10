@@ -11,17 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class TravelController extends AbstractController
 {
     #[Route('/travel', name: 'app_travel',methods: 'GET')]
-    public function travel(OfferService $offerService): Response
+    public function travel(TravelRepository $travelRepository): Response
     {
         return $this->render('travel/index.html.twig', [
-            'data' => json_decode($offerService->getTravel()),
+            'data' => $travelRepository->findAll(),
 
         ]);
     }
-    public function limitedTravel(OfferService $offerService): Response
+    public function limitedTravel(TravelRepository $travelRepository): Response
     {
         return $this->render('travel/limitedtravel.html.twig', [
-            'data' => json_decode($offerService->getLimitedListTravel(3)),
+            'data' => $travelRepository->findAll(),
 
         ]);
     }

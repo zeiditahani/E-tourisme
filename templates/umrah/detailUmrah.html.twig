@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  {% for d in umrah %}
+      {{ d.title }}
+      {{ d.description }}
+      {{ d.detailed_description }}
+      {{ d.included }}
+      {{ d.unincluded }}
+      {{ d.image }}
+  {% endfor %}
+{% endblock %}

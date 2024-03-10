@@ -23,7 +23,7 @@
 
                                             <div class="button-group mt--30">
                                                 <a class="rbt-btn btn-gradient rbt-marquee-btn">
-                                                    <span data-text="More About University">button/link</span>
+                                                    <span data-text="More About University">Découvrir Maintenant</span>
                                                 </a>
                                             </div>
                                             <div class="social-share-wrapper mt--40">
@@ -84,7 +84,7 @@
             <div class="swiper-wrapper">
                 {% for d in data %}
                 <div class="swiper-slide">
-                    <img src="{{ asset('assets/uploads/' ~ d.image) }}" alt="{{ d.title }}" title="{{ d.description }}"/>
+                    <img src="{{ asset('uploads/' ~ d.image) }}" alt="{{ d.title }}" title="{{ d.description }}"/>
                 </div>
                 {% endfor %}
             </div>

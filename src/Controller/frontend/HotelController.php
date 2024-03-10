@@ -20,17 +20,17 @@ class HotelController extends AbstractController
 
     #[Route('/hotel', name: 'app_hotel',methods: 'GET')]
 
-   public function hotel(OfferService $offerService): Response
+   public function hotel(HotelRepository $hotelRepository): Response
    {
        return $this->render('hotel/index.html.twig', [
-           'data' => json_decode($offerService->getHotel()),
+           'data' => $hotelRepository->findAll(),
 
        ]);
    }
-    public function limitedHotel(OfferService $offerService): Response
+    public function limitedHotel(HotelRepository $hotelRepository): Response
     {
         return $this->render('hotel/limitedHotel.html.twig', [
-            'data' => json_decode($offerService->getLimitedHotel(4)),
+            'data' => $hotelRepository->findAll(),
 
         ]);
     }

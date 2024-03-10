@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 
         <!-- SEO -->
-        <title>{% block title %}Annuaire des agences de voyages{% endblock %}</title>
+        <title>{% block title %}E_tourisme{% endblock %}</title>
         <link rel="canonical" href="https://annuairedesagencesdevoyages.com.tn/" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:type" content="article" />
@@ -21,7 +21,7 @@
         <!-- SEO -->
 
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
+        
 
             <!-- Favicon -->
             <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
@@ -44,9 +44,7 @@
             <link rel="stylesheet" href="assets/css/plugins/magnigy-popup.min.css">
             <link rel="stylesheet" href="assets/css/plugins/plyr.css">
             <link rel="stylesheet" href="assets/css/style.css">
-        {% endblock %}
-
-        {% block javascripts %}
+     
             <!-- JS
 ============================================ -->
             <!-- Modernizer JS -->
@@ -79,7 +77,7 @@
             <script src="assets/js/vendor/plyr.js"></script>
             <!-- Main JS -->
             <script src="assets/js/main.js"></script>
-        {% endblock %}
+       
     </head>
     <body>
 
@@ -93,32 +91,51 @@
                 <div class="container-fluid">
                     <div class="top-expended-wrapper">
                         <div class="top-expended-inner rbt-header-sec align-items-center ">
-                            <div class="rbt-header-sec-col rbt-header-left d-none d-xl-block">
+                            <div class="rbt-header-sec-col rbt-header-left d-block d-xl-block">
                                 <div class="rbt-header-content">
                                     <!-- Start Header Information List  -->
                                     <div class="header-info">
-
-
-                                            <div class="topbar-today-date fa-before">
-                                                dimanche, janvier 28 2024
-                                            </div>
+                                        <div class="topbar-today-date fa-before" id="current-date"></div>
                                     </div>
                                     <!-- End Header Information List  -->
+                                    
+                                    <script>
+                                        // Récupérer l'élément où nous allons afficher la date actuelle
+                                        var currentDateElement = document.getElementById("current-date");
+                                    
+                                        // Obtenir la date actuelle
+                                        var currentDate = new Date();
+                                    
+                                        // Jours de la semaine
+                                        var daysOfWeek = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+                                    
+                                        // Mois de l'année
+                                        var monthsOfYear = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+                                    
+                                        // Obtenir le jour, le mois et l'année
+                                        var dayOfWeek = daysOfWeek[currentDate.getDay()];
+                                        var dayOfMonth = currentDate.getDate();
+                                        var monthOfYear = monthsOfYear[currentDate.getMonth()];
+                                        var year = currentDate.getFullYear();
+                                    
+                                        // Construction de la chaîne de date
+                                        var dateString = dayOfWeek + ", " + dayOfMonth + " " + monthOfYear + " " + year;
+                                    
+                                        // Mettre à jour le contenu de l'élément avec la date actuelle
+                                        currentDateElement.textContent = dateString;
+                                    </script>
                                 </div>
                             </div>
 
                             <div class="rbt-header-sec-col rbt-header-right mt_md--10 mt_sm--10">
                                 <div class="rbt-header-content justify-content-start justify-content-lg-end">
-                                    <div class="header-info d-none d-xl-block">
+                                    <div class="header-info d-block d-xl-block">
                                         <ul class="social-share-transparent">
                                             <li>
                                                 <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
                                             </li>
                                             <li>
-                                                <a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.linkdin.com"><i class="fab fa-linkedin-in"></i></a>
+                                                <a href="http://www.tiktok.com"><i class="fab fa-linkedin-in"></i></a>
                                             </li>
                                             <li>
                                                 <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
@@ -126,7 +143,7 @@
                                         </ul>
                                     </div>
 
-                                    <div class="rbt-separator d-none d-xl-block"></div>
+                                    <div class="rbt-separator d-block d-xl-block"></div>
 
                                     <div class="header-info">
                                         <ul class="rbt-dropdown-menu switcher-language">
@@ -163,13 +180,13 @@
                             <div class="header-info">
                                 <div class="rbt-category-menu-wrapper">
                                     <div class="rbt-category-btn rbt-side-offcanvas-activation">
-                                        <span class="category-text d-none d-xl-block">LOGO</span>
+                                        <span class="category-text d-block d-xl-block">LOGO</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!--End LOGO-->
-                        <div class="rbt-main-navigation d-none d-xl-block">
+                        <div class="rbt-main-navigation d-block d-xl-block">
                             <nav class="mainmenu-nav">
                                 <ul class="mainmenu">
                                     <!--Start Voyage-->
@@ -178,7 +195,7 @@
                                         <ul class="submenu">
                                             <li class="has-dropdown"><a href="{{ path('app_agency') }}">Region</a>
                                                 <ul class="submenu">
-                                                   {# {{ render(controller('App\\Controller\\frontend\\RegionController::index')) }} #} 
+                                                   <a> Region </a>
                                                 </ul>
                                             </li>
                                             <li class="has-dropdown"> <a href="{{ path('app_agency') }}">Agences De Voyage</a> </li>
@@ -188,7 +205,7 @@
                                     <!--Start Continent-->
                                     <li class="has-dropdown has-menu-child-item">
                                         <a>Continent</a>
-                                        <ul class="submenu">{{ render(controller('App\\Controller\\frontend\\ContinentController::index')) }}</ul>
+                                        <ul class="submenu">Continent</ul>
                                     </li>
                                     <!--End Continent-->
 
@@ -219,24 +236,20 @@
                                 </ul>
                             </nav>
                         </div>
-
-                        <div class="header-right">
+                       
+                        <div class="header-right">  
                             <ul class="quick-access">
-                                <li class="access-icon">
-                                    <a class="search-trigger-active rbt-round-btn" >
-                                        <i class="feather-search"></i>
+                                <li class="access-icon rbt-user-wrapper right-align-dropdown">
+                                    <a class="rbt-round-btn" href="{{ path('app_login') }}">
+                                        <i class="feather-user"></i>
                                     </a>
-                                </li>
+                                </li> 
                             </ul>
                         </div>
-                            <!-- End Search -->
                     </div>
                 </div>
             </div>
-                </div>
-            </div>
         </header>
-        </div>
         <!-- End Header Area -->
         <!-- Mobile Menu Section -->
         <div class="popup-mobile-menu">

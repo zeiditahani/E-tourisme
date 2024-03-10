@@ -11,10 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class GoodAdressController extends AbstractController
 {
     #[Route('/good', name: 'app_good_adress',methods: 'GET')]
-    public function index(OfferService $offerService): Response
+    public function index(GoodAdressRepository $goodAdressRepository): Response
     {
         return $this->render('good_adress/index.html.twig', [
-            'data' => json_decode($offerService->getgoodAddress(4)),
+            'data' => $goodAdressRepository->findAll(),
 
         ]);
     }

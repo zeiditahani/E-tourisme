@@ -1,12 +1,104 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+  <div class="container-fluid">
+    <div class="row g-3">
+        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+            <div class="instagram-grid">
+                <a href="#">
+                    <img src="assets/images/instagram/instagram-01.jpg" alt="instagram">
+                    <span class="user-info">
+                    <span class="icon"><i class="icon-instagram"></i></span>
+                    <span class="user-name">@Histudy</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+            <div class="instagram-grid">
+                <a href="#">
+                    <img src="assets/images/instagram/instagram-02.jpg" alt="instagram">
+                    <span class="user-info">
+                    <span class="icon"><i class="icon-instagram"></i></span>
+                    <span class="user-name">@Histudy</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+            <div class="instagram-grid">
+                <a href="#">
+                    <img src="assets/images/instagram/instagram-03.jpg" alt="instagram">
+                    <span class="user-info">
+                    <span class="icon"><i class="icon-instagram"></i></span>
+                    <span class="user-name">@Histudy</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+            <div class="instagram-grid">
+                <a href="#">
+                    <img src="assets/images/instagram/instagram-04.jpg" alt="instagram">
+                    <span class="user-info">
+                    <span class="icon"><i class="icon-instagram"></i></span>
+                    <span class="user-name">@Histudy</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+            <div class="instagram-grid">
+                <a href="#">
+                    <img src="assets/images/instagram/instagram-05.jpg" alt="instagram">
+                    <span class="user-info">
+                    <span class="icon"><i class="icon-instagram"></i></span>
+                    <span class="user-name">@Histudy</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+            <div class="instagram-grid">
+                <a href="#">
+                    <img src="assets/images/instagram/instagram-06.jpg" alt="instagram">
+                    <span class="user-info">
+                    <span class="icon"><i class="icon-instagram"></i></span>
+                    <span class="user-name">@Histudy</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rbt-tab-area bg-color-white rbt-section-gap">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            {% for d in umrahs %}
+            <div class="col-lg-5">
+                <div class="content">
+                    <img class="w-100 radius-10" src="{{ asset('uploads/imgUmrah/'~d.image)}}" alt="{{d.title}}">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="inner pl--50 pl_sm--0 pl_md--0 pl_lg--0">
+                    <div class="section-title text-start">
+                        <h2 class="title">{{d.title}}</h2>
+                        <p class="description mt--20">{{ d.description }}<br /> Découvrez les PRIX OMRA TUNISIE 2024, profitez des Offres TunisieBooking avec facilité de paiement.</p>
 
-  {% for d in data %}
-      {{ d.title }}
-      {{ d.description }}
-      {{ d.detailed_description }}
-      {{ d.included }}
-      {{ d.unincluded }}
-      {{ d.image }}
-  {% endfor %}
+                        <h5 class="mb--20">{{ d.included }}</h5>
+                        <div class="plan-offer-list-wrapper">
+                            <ul class="plan-offer-list">
+                                <li><i class="feather-check"></i>Included</li>
+                            </ul>
+                            <ul class="plan-offer-list">
+                                <li><i class="feather-check"></i>Unincluded</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

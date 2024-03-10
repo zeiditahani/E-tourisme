@@ -2,6 +2,7 @@
 
 namespace App\Controller\frontend;
 
+use App\Entity\Blog;
 use App\Repository\BlogRepository;
 use App\Service\OfferService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,19 +12,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     #[Route('/blog', name: 'app_blog',methods: 'GET')]
-    public function listBlog(OfferService $offerService): Response
+    public function listBlog(BlogRepository $blogRepository): Response
     {
         return $this->render('blog/index.html.twig', [
-            'data' => json_decode($offerService->getBlog()),
+            'blog' => $blogRepository->findAll() ,
 
         ]);
     }
 
     #[Route('/widget', name: 'app_widget',methods: 'GET')]
-    public function widget(OfferService $offerService): Response
+    public function widget(BlogRepository $blogRepository): Response
     {
         return $this->render('blog/widget.html.twig', [
-            'data' => json_decode($offerService->getLimitedListBlog(5)),
+            'data' => $blogRepository->findAll() ,
 
         ]);
     }
@@ -31,12 +32,13 @@ class BlogController extends AbstractController
 
 
     #[Route('/detailBlog/{id_blog}', name: 'app_detailBlog',methods: 'GET')]
-    public function detailBlog(OfferService $offerService): Response
+    public function detailBlog(Blog $blog): Response
     {
         return $this->render('blog/detailBlog.html.twig', [
-            'data' => json_decode($offerService->getDetailBlog(2)),
+            'data' => $blog,
 
         ]);
     }
+    
 
 }

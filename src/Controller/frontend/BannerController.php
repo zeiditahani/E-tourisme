@@ -13,10 +13,10 @@ class BannerController extends AbstractController
 
 {
    #[Route('/banner', name: 'app_banner',methods: 'GET')]
-    public function index(OfferService $offerService): Response
+    public function index(BannerRepository $bannerRepository): Response
     {
         return $this->render('banner/index.html.twig', [
-            'data' => json_decode($offerService->getBanner()),
+            'data' => $bannerRepository->findAll(),
 
         ]);
     }

@@ -3,8 +3,6 @@
 {% block body %}
 
     {{ render(controller('App\\Controller\\frontend\\BannerController::index')) }}
-    {{ render(controller('App\\Controller\\frontend\\GoodAdressController::index')) }}
-    {{ render(controller('App\\Controller\\frontend\\BlogController::widget')) }}
 
 
 
@@ -28,7 +26,7 @@
 
 
     <!-- Start Agency Area -->
-    {{ render(controller('App\\Controller\\frontend\\AgencyController::limitedListAgency')) }}
+    {#{ render(controller('App\\Controller\\frontend\\AgencyController::limitedListAgency')) }#}
     <!-- End Agency Area -->
 
 
@@ -38,8 +36,15 @@
 
 
     <!-- Start Umrah -->
-    {{ render(controller('App\\Controller\\frontend\\UmrahController::limitedUmrah')) }}
+    {#{ render(controller('App\\Controller\\frontend\\UmrahController::limitedUmrah')) }#}
     <!-- End Umrah --->
+
+    {{ render(controller('App\\Controller\\frontend\\BlogController::widget')) }}
+
+
+    {{ render(controller('App\\Controller\\frontend\\GoodAdressController::index')) }}
+
+
 
 
     <div class="rbt-separator-mid">

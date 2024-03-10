@@ -10,10 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContinentController extends AbstractController
 {
     #[Route('/continent', name: 'app_continent')]
-    public function index(OfferService $offerService): Response
+    public function index(): Response
     {
         return $this->render('continent/index.html.twig', [
-            'continent' => json_decode($offerService->getContinent()),
+            
         ]);
     }
 

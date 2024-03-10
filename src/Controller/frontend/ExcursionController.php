@@ -12,17 +12,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class ExcursionController extends AbstractController
 {
     #[Route('/excursion', name: 'app_excursion',methods: 'GET')]
-    public function excursion(OfferService $offerService): Response
+    public function excursion(ExcursionRepository $excursionRepository): Response
     {
         return $this->render('excursion/index.html.twig', [
-            'data' => json_decode($offerService->getExcursion()),
+            'data' => $excursionRepository->findAll() ,
 
         ]);
     }
-    public function limitedExcursion(OfferService $offerService): Response
+    public function limitedExcursion(ExcursionRepository $excursionRepository): Response
     {
         return $this->render('excursion/limitedExcursion.html.twig', [
-            'data' => json_decode($offerService->getLimitedExcursion(2)),
+            'data' => $excursionRepository->findAll(),
         ]);
     }
 
