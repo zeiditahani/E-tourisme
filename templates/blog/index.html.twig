@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<a class="close_side_menu" href="javascript:void(0);"></a>
+
 <div class="rbt-page-banner-wrapper">
     <!-- Start Banner BG Image  -->
     <div class="rbt-banner-image"></div>
     <!-- End Banner BG Image  -->
     <div class="rbt-banner-content">
+
         <!-- Start Banner Content Top  -->
         <div class="rbt-banner-content-top">
             <div class="container">
@@ -17,234 +20,178 @@
                             <li>
                                 <div class="icon-right"><i class="feather-chevron-right"></i></div>
                             </li>
-                            <li class="rbt-breadcrumb-item active">All Blog</li>
+                            <li class="rbt-breadcrumb-item active">All Blogs</li>
                         </ul>
                         <!-- End Breadcrumb Area  -->
 
-                        <p class="description">Blog that help beginner designers become true unicorns. </p>
+                        <div class="title-wrapper">
+                            <h1 class="title mb--0">All Blogs</h1>
+                          
+                        </div>
+
+                        <p class="description">Courses that help beginner designers become true unicorns. </p>
                     </div>
                 </div>
             </div>
         </div>
         <!-- End Banner Content Top  -->
+
     </div>
 </div>
 
-<!-- Start Card Style -->
-<div class="rbt-blog-area rbt-section-overlayping-top rbt-section-gapBottom">
+<div class="rbt-section-overlayping-top rbt-section-gapBottom">
     <div class="container">
+        <div class="row row--30 gy-5">
 
-        <!-- Start Card Area -->
-        <div class="row g-5">
-            <!-- Start Single Card  -->
-            {% for d in data %}
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                <div class="rbt-card variation-02 height-330 rbt-hover">
-                    <div class="rbt-card-img">
-                        <a href="blog-details.html">
-                            <img src="assets/images/blog/blog-card-01.jpg" alt="Card image"> </a>
-                    </div>
-                    <div class="rbt-card-body">
-                        <h3 class="rbt-card-title"><a href="blog-details.html">{{ d.title }}</a></h3>
-                        <p class="rbt-card-text">It is a long established fact that a reader.</p>
-                        <div class="rbt-card-bottom">
-                            <a class="transparent-button" href="blog-details.html">Learn More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+            <div class="col-lg-8">
+
+                <!-- Start Card Area -->
+                <div class="row g-5">
+
+                    <!-- Start Single Card  -->
+                    {% for d in data %}
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
+                            <div class="rbt-card-img">
+                                <a href="blog-details.html">
+                                    <img src="{{ asset('uploads/' ~ d.image) }}" alt="{{d.title}}"> </a>
+                            </div>
+                            <div class="rbt-card-body">
+                                <h5 class="rbt-card-title"><a href="blog-details.html">{{d.title}}</a></h5>
+
+                                <ul class="blog-meta">
+                                    <li><i class="feather-clock"></i></li>    
+                                </ul>
+                                <p class="rbt-card-text"></p>
+                                <div class="rbt-card-bottom">
+                                    <a class="transparent-button" href="blog-details.html">Learn
+                                        More</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
+                    <!-- End Single Card  -->
                 </div>
-            </div>
-            <!-- End Single Card  -->
+                <!-- End Card Area -->
 
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-
-                <!-- Start Single Card  -->
-                <div class="rbt-card card-list variation-02 rbt-hover">
-                    <div class="rbt-card-img">
-                        <a href="blog-details.html">
-                            <img src="{{ asset('assets/uploads/' ~ d.image) }}" alt="Card image"> </a>
+                <div class="row">
+                    <div class="col-lg-12 mt--60">
+                        <nav>
+                            <ul class="rbt-pagination">
+                                <li><a href="#" aria-label="Previous"><i class="feather-chevron-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#" aria-label="Next"><i class="feather-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
                     </div>
-                    <div class="rbt-card-body">
-                        <h8 class="rbt-card-title"><a href="blog-details.html">{{ d.title }}</a></h8>
-                        <div class="rbt-card-bottom">
-                            <a class="transparent-button" href="blog-details.html">Read Article<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <aside class="rbt-sidebar-widget-wrapper rbt-gradient-border">
+
+                    <!-- Start Widget Area  -->
+                   
+                    <div class="rbt-single-widget rbt-widget-search">
+                        <div class="inner">
+                            <form action="#" class="rbt-search-style-1">
+                                <input type="text" placeholder="Search...">
+                                <button class="search-btn"><i class="feather-search"></i></button>
+                            </form>
                         </div>
                     </div>
-                </div>
-                <!-- End Single Card  -->
+                   
+                    <!-- End Widget Area  -->
 
+                    <!-- Start Widget Area  -->
+                   
+                    <div class="rbt-single-widget rbt-widget-recent">
+                        <div class="inner">
+                            <h4 class="rbt-widget-title">Recent Post</h4>
+                            <ul class="rbt-sidebar-list-wrapper recent-post-list">
+                                {% for d in data %}
+                                <li>
+                                    <div class="thumbnail">
+                                        <a href="event-details.html">
+                                            <img src="{{ asset('uploads/' ~ d.image) }}" alt="{{d.title}}">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6 class="title"><a href="event-details.html">{{d.title}}</a></h6>
+                                        <ul class="rbt-meta">
+                                            <li><i class="feather-clock"></i>26 Mar, 2025</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Widget Area  -->
+                    <!-- Start Widget Area  -->
+                    <div class="rbt-single-widget rbt-widget-tag">
+                        <div class="inner">
+                            <h4 class="rbt-widget-title">Tags</h4>
+                            <div class="rbt-sidebar-list-wrapper rbt-tag-list">
+                                <a href="{{path('app_cruise')}}">Croisiére</a>
+                                <a href="{{path('app_hiking')}}">Rondonnées</a>
+                                <a href="{{path('app_umrah')}}">Umrah</a>
+                                <a href="{{path('app_travel')}}">Voyage</a>
+                                <a href="{{path('app_agency')}}">Agences</a>
+                                <a href="{{path('app_hotel')}}">Hôtels</a>
+                                <a href="{{path('app_excursion')}}">Excursion</a>
+                                <a href="{{path('app_test_homepage')}}">Home</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Widget Area  -->
+                </aside>
             </div>
-            {% endfor %}
+
         </div>
-        <!-- End Card Area -->
-
-        <!-- Start Card Area -->
-        <div class="row g-5 mt--15">
-
-            <!-- Start Single Card  -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="rbt-card variation-02 rbt-hover">
-                    <div class="rbt-card-img">
-                        <a href="blog-details.html">
-                            <img src="assets/images/blog/blog-grid-01.jpg" alt="Card image"> </a>
-                    </div>
-                    <div class="rbt-card-body">
-                        <h5 class="rbt-card-title"><a href="blog-details.html">The Latest Trend In Education.</a></h5>
-                        <p class="rbt-card-text">It is a long established fact that a reader.</p>
-                        <div class="rbt-card-bottom">
-                            <a class="transparent-button" href="blog-details.html">Learn
-                                More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Card  -->
-
-            <!-- Start Single Card  -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="rbt-card variation-02 rbt-hover">
-                    <div class="rbt-card-img">
-                        <a href="blog-details.html">
-                            <img src="assets/images/blog/blog-grid-02.jpg" alt="Card image"> </a>
-                    </div>
-                    <div class="rbt-card-body">
-                        <h5 class="rbt-card-title"><a href="blog-details.html">The Modern Rules Of Education.</a></h5>
-                        <p class="rbt-card-text">It is a long established fact that a reader.</p>
-                        <div class="rbt-card-bottom">
-                            <a class="transparent-button" href="blog-details.html">Learn
-                                More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Card  -->
-
-            <!-- Start Single Card  -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="rbt-card variation-02 rbt-hover">
-                    <div class="rbt-card-img">
-                        <a href="blog-details.html">
-                            <img src="assets/images/blog/blog-grid-03.jpg" alt="Card image"> </a>
-                    </div>
-                    <div class="rbt-card-body">
-                        <h5 class="rbt-card-title"><a href="blog-details.html">Why Is Education So Famous?</a></h5>
-                        <p class="rbt-card-text">It is a long established fact that a reader.</p>
-                        <div class="rbt-card-bottom">
-                            <a class="transparent-button" href="blog-details.html">Learn
-                                More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Card  -->
-
-            <!-- Start Single Card  -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="rbt-card variation-02 rbt-hover">
-                    <div class="rbt-card-img">
-                        <a href="blog-details.html">
-                            <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
-                    </div>
-                    <div class="rbt-card-body">
-                        <h5 class="rbt-card-title"><a href="blog-details.html">Industry Insiders Say Education.</a></h5>
-                        <p class="rbt-card-text">Industry a long established that a reader.</p>
-                        <div class="rbt-card-bottom">
-                            <a class="transparent-button" href="blog-details.html">Learn
-                                More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Card  -->
-
-            <!-- Start Single Card  -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="rbt-card variation-02 rbt-hover">
-                    <div class="rbt-card-img">
-                        <a href="blog-details.html">
-                            <img src="assets/images/blog/blog-grid-05.jpg" alt="Card image"> </a>
-                    </div>
-                    <div class="rbt-card-body">
-                        <h5 class="rbt-card-title"><a href="blog-details.html">Make You Love And Hate Education.</a></h5>
-                        <p class="rbt-card-text">Make a long established fact a reader.</p>
-                        <div class="rbt-card-bottom">
-                            <a class="transparent-button" href="blog-details.html">Learn
-                                More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Card  -->
-
-            <!-- Start Single Card  -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="rbt-card variation-02 rbt-hover">
-                    <div class="rbt-card-img">
-                        <a href="blog-details.html">
-                            <img src="assets/images/blog/blog-grid-06.jpg" alt="Card image"> </a>
-                    </div>
-                    <div class="rbt-card-body">
-                        <h5 class="rbt-card-title"><a href="blog-details.html">Education Only A Handful Of People.</a></h5>
-                        <p class="rbt-card-text">Education established fact that a reader.</p>
-                        <div class="rbt-card-bottom">
-                            <a class="transparent-button" href="blog-details.html">Learn
-                                More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Card  -->
-        </div>
-        <!-- End Card Area -->
-
-        <!-- End Card Area -->
-        <div class="row">
-            <div class="col-lg-12 mt--60">
-                <nav>
-                    <ul class="rbt-pagination">
-                        <li><a href="#" aria-label="Previous"><i class="feather-chevron-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#" aria-label="Next"><i class="feather-chevron-right"></i></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-
     </div>
 </div>
-<!-- End Card Style -->
-    <!-- JS
-============================================ -->
-    <!-- Modernizer JS -->
-    <script src="assets/js/vendor/modernizr.min.js"></script>
-    <!-- jQuery JS -->
-    <script src="assets/js/vendor/jquery.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-    <!-- sal.js -->
-    <script src="assets/js/vendor/sal.js"></script>
-    <script src="assets/js/vendor/swiper.js"></script>
-    <script src="assets/js/vendor/magnify.min.js"></script>
-    <script src="assets/js/vendor/jquery-appear.js"></script>
-    <script src="assets/js/vendor/odometer.js"></script>
-    <script src="assets/js/vendor/backtotop.js"></script>
-    <script src="assets/js/vendor/isotop.js"></script>
-    <script src="assets/js/vendor/imageloaded.js"></script>
 
-    <script src="assets/js/vendor/wow.js"></script>
-    <script src="assets/js/vendor/waypoint.min.js"></script>
-    <script src="assets/js/vendor/easypie.js"></script>
-    <script src="assets/js/vendor/text-type.js"></script>
-    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-    <script src="assets/js/vendor/bootstrap-select.min.js"></script>
-    <script src="assets/js/vendor/jquery-ui.js"></script>
-    <script src="assets/js/vendor/magnify-popup.min.js"></script>
-    <script src="assets/js/vendor/paralax-scroll.js"></script>
-    <script src="assets/js/vendor/paralax.min.js"></script>
-    <script src="assets/js/vendor/countdown.js"></script>
-    <script src="assets/js/vendor/plyr.js"></script>
-    <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+<div class="rbt-separator-mid">
+    <div class="container">
+        <hr class="rbt-separator m-0">
+    </div>
+</div>
+<!-- JS
+============================================ -->
+<!-- Modernizer JS -->
+<script src="assets/js/vendor/modernizr.min.js"></script>
+<!-- jQuery JS -->
+<script src="assets/js/vendor/jquery.js"></script>
+<!-- Bootstrap JS -->
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+<!-- sal.js -->
+<script src="assets/js/vendor/sal.js"></script>
+<script src="assets/js/vendor/swiper.js"></script>
+<script src="assets/js/vendor/magnify.min.js"></script>
+<script src="assets/js/vendor/jquery-appear.js"></script>
+<script src="assets/js/vendor/odometer.js"></script>
+<script src="assets/js/vendor/backtotop.js"></script>
+<script src="assets/js/vendor/isotop.js"></script>
+<script src="assets/js/vendor/imageloaded.js"></script>
+
+<script src="assets/js/vendor/wow.js"></script>
+<script src="assets/js/vendor/waypoint.min.js"></script>
+<script src="assets/js/vendor/easypie.js"></script>
+<script src="assets/js/vendor/text-type.js"></script>
+<script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+<script src="assets/js/vendor/bootstrap-select.min.js"></script>
+<script src="assets/js/vendor/jquery-ui.js"></script>
+<script src="assets/js/vendor/magnify-popup.min.js"></script>
+<script src="assets/js/vendor/paralax-scroll.js"></script>
+<script src="assets/js/vendor/paralax.min.js"></script>
+<script src="assets/js/vendor/countdown.js"></script>
+<script src="assets/js/vendor/plyr.js"></script>
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+
 {% endblock %}

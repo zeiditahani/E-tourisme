@@ -3,7 +3,7 @@
 namespace App\Controller\frontend;
 
 use App\Repository\HotelRepository;
-use App\Service\OfferService;
+use App\Entity\Hotel;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,9 +29,18 @@ class HotelController extends AbstractController
    }
     public function limitedHotel(HotelRepository $hotelRepository): Response
     {
+        $hotel = $hotelRepository->findByExampleField();
         return $this->render('hotel/limitedHotel.html.twig', [
-            'data' => $hotelRepository->findAll(),
+            'data' => $hotel,
 
+        ]);
+    }
+    #[Route('/hotel{id}', name: 'app_detailHotel',methods: 'GET')]
+    public function detailHiking(Hotel $hotel, HotelRepository $hotelRepository): Response
+    {
+        return $this->render('hotel/detailHotel.html.twig', [
+              'hotel' => $hotel,
+              'data' =>$hotelRepository,
         ]);
     }
 }

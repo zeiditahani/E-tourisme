@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\CruiseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Region;
 
 #[ORM\Entity(repositoryClass: CruiseRepository::class)]
 #[ApiResource]
@@ -36,6 +39,14 @@ class Cruise
 
     #[ORM\Column(type: Types::ARRAY, nullable: true)]
     private ?array $images = null;
+
+    #[ORM\OneToMany(mappedBy: 'cruise', targetEntity: region::class, orphanRemoval: true)]
+    private Collection $regions;
+
+    public function __construct()
+    {
+        $this->regions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -122,6 +133,36 @@ class Cruise
     public function setImages(?array $images): static
     {
         $this->images = $images;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, region>
+     */
+    public function getRegions(): Collection
+    {
+        return $this->regions;
+    }
+
+    public function addRegion(region $region): static
+    {
+        if (!$this->regions->contains($region)) {
+            $this->regions->add($region);
+            $region->setCruise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRegion(region $region): static
+    {
+        if ($this->regions->removeElement($region)) {
+            // set the owning side to null (unless already changed)
+            if ($region->getCruise() === $this) {
+                $region->setCruise(null);
+            }
+        }
 
         return $this;
     }

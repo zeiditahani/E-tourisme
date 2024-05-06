@@ -34,7 +34,7 @@ class Umrah
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?array $images = null;
 
     #[ORM\Column(length: 255, nullable: true)]

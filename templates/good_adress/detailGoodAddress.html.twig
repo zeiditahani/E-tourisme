@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+
+<!-- Start Advance Tab  -->
+<div class="rbt-advance-tab-area rbt-section-gap bg-color-extra2">
+    <div class="container">
+        <div class="row mb--60">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    {% if goodAdress is not empty %}
+                        <span class="subtitle bg-secondary-opacity">{{ goodAdress.region }}</span>
+                        <h2 class="title">{{ goodAdress.title }}</h2>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade advance-tab-content-1" id="home-2" role="tabpanel" aria-labelledby="home-tab-2">
+                        <div class="thumbnail">
+                            <img src="{{ asset('uploads/' ~ goodAdress.image) }}" alt="{{ goodAdress.title }}" width="1000px" height="720px">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade advance-tab-content-1 active show" id="profile-2" role="tabpanel" aria-labelledby="profile-tab-2">
+                        <div class="thumbnail">
+                            <img src="{{ asset('uploads/' ~ goodAdress.image) }}" alt="{{ goodAdress.title }}" width="1000px" height="720px"">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade advance-tab-content-1" id="contact-2" role="tabpanel" aria-labelledby="contact-tab-2">
+                        <div class="thumbnail">
+                            <img src="{{ asset('uploads/' ~ goodAdress.image) }}" alt="{{ goodAdress.title }}" width="1000px" height="720px"">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt_md--30 mt_sm--30">
+                <div class="advance-tab-button advance-tab-button-1 right-align">
+                    <ul class="nav nav-tabs tab-button-list" id="myTab-2" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a href="#" class="nav-link tab-button" id="home-tab-2" data-bs-toggle="tab" data-bs-target="#home-2" role="tab" aria-controls="home" aria-selected="false">
+                                <div class="tab">
+                                    <h4 class="title">{{goodAdress.description }}</h4>
+                                    <p class="description"></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#" class="nav-link tab-button active" id="profile-tab-2" data-bs-toggle="tab" data-bs-target="#profile-2" role="tab" aria-controls="profile-2" aria-selected="true">
+                                <div class="tab">
+                                    <h4 class="title">{{goodAdress.adress }}</h4>
+                                    <p class="description"></p>
+                                </div>
+                            </a>
+                        </li>
+                         {#
+                        <li class="nav-item" role="presentation">
+                            <a href="#" class="nav-link tab-button" id="contact-tab-2" data-bs-toggle="tab" data-bs-target="#contact-2" role="tab" aria-controls="contact-2" aria-selected="false">
+                                <div class="tab">
+                                    <h4 class="title">{{goodAdress.description }}</h4>
+                                    <p class="description"></p>
+                                </div>
+                            </a>
+                        </li>
+                        #}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Advance Tab  -->
+{%endblock%}

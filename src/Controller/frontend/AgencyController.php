@@ -4,7 +4,7 @@ namespace App\Controller\frontend;
 
 use App\Entity\Agency;
 use App\Repository\AgencyRepository;
-use App\Service\OfferService;
+use  App\Entity\hiking;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,24 +19,23 @@ class AgencyController extends AbstractController
     {
 
         return $this->render('agency/index.html.twig', [
-            'agencies' => $agencyRepository ->findAll(),
+            'data' => $agencyRepository ->findAll(),
         ]);
     }
 
 
-    #[Route('agency/{id_agency} ', name: 'app_detailAgency',methods: 'GET')]
+    #[Route('agency{id_agency} ', name: 'app_detailAgency',methods: 'GET')]
 
     public function detailAgency( Agency $agency ) : Response
     {
         return $this->render('agency/detailAgency.html.twig', [
-            'data' => $agency,
+            'agency' => $agency,
         ]);
     }
-    //#[Route('agency/{id_agency} ', name: 'app_detailAgency',methods: 'GET')]
 
     public function limitedAgency( AgencyRepository $agencyRepository ) : Response
     {
-        return $this->render('agency/detailAgency.html.twig', [
+        return $this->render('agency/limitedListAgency.html.twig', [
             'data' => $agencyRepository->findAll(),
         ]);
     }

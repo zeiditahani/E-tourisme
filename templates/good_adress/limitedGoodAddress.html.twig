@@ -1,0 +1,64 @@
+{% block body %}
+
+                <div class="rbt-team-area bg-color-extra2 rbt-section-gap">
+                    <div class="container">
+                        <div class="row g-5">
+            
+                            <!-- Start Single Team  -->
+                            {% for d in data %}
+                            <div class="col-lg-3 col-md-6 col-12">
+                                <div class="rbt-team team-style-default style-three small-layout rbt-hover">
+                                    <div class="inner">
+                                        <div class="thumbnail"><img src="{{ asset('uploads/' ~ d.image) }}" alt="{{ d.title }}" title=" {{ d.description }}"></div>
+                                        <div class="content">
+                                            <h4 class="title">{{ d.title }}</h4>
+                                            <h6 class="subtitle theme-gradient">{{ d.description }}</h6>
+                                            <span class="team-form">
+                                                <i class="feather-map-pin"></i>
+                                                <span class="location">{{ d.adress }}</span>
+                                            </span>
+                                        </div>
+                                        <div class="content">
+                                            <p>React Js dolor sit, amet consectetur.</p>
+                                            <a class="transparent-button" href="{{ path('app_good_adress' , {'id_address': d.id}) }}"> Voir L'Offre </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- End Single Team  -->
+                        </div>
+                    </div>
+                </div>
+                
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="assets/js/vendor/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <!-- sal.js -->
+    <script src="assets/js/vendor/sal.js"></script>
+    <script src="assets/js/vendor/swiper.js"></script>
+    <script src="assets/js/vendor/magnify.min.js"></script>
+    <script src="assets/js/vendor/jquery-appear.js"></script>
+    <script src="assets/js/vendor/odometer.js"></script>
+    <script src="assets/js/vendor/backtotop.js"></script>
+    <script src="assets/js/vendor/isotop.js"></script>
+    <script src="assets/js/vendor/imageloaded.js"></script>
+
+    <script src="assets/js/vendor/wow.js"></script>
+    <script src="assets/js/vendor/waypoint.min.js"></script>
+    <script src="assets/js/vendor/easypie.js"></script>
+    <script src="assets/js/vendor/text-type.js"></script>
+    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+    <script src="assets/js/vendor/bootstrap-select.min.js"></script>
+    <script src="assets/js/vendor/jquery-ui.js"></script>
+    <script src="assets/js/vendor/magnify-popup.min.js"></script>
+    <script src="assets/js/vendor/paralax-scroll.js"></script>
+    <script src="assets/js/vendor/paralax.min.js"></script>
+    <script src="assets/js/vendor/countdown.js"></script>
+    <script src="assets/js/vendor/plyr.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+{% endblock %}

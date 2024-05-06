@@ -21,20 +21,17 @@ class ExcursionRepository extends ServiceEntityRepository
         parent::__construct($registry, Excursion::class);
     }
 
-//    /**
-//     * @return Excursion[] Returns an array of Excursion objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Excursion[] Returns an array of Excursion objects
+     */
+    public function findByExampleField(): array
+    {
+        return $this->createQueryBuilder('e')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Excursion
 //    {

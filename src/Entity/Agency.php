@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use App\Entity\hiking;
 use App\Repository\AgencyRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -38,6 +41,14 @@ class Agency
 
     #[ORM\Column(length: 255)]
     private ?string $logo = null;
+
+    #[ORM\OneToMany(mappedBy: 'agence', targetEntity: hiking::class)]
+    private Collection $hiking;
+
+    public function __construct()
+    {
+        $this->hiking = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -112,6 +123,36 @@ class Agency
     public function setLogo(string $logo): static
     {
         $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, hiking>
+     */
+    public function getHiking(): Collection
+    {
+        return $this->hiking;
+    }
+
+    public function addHiking(hiking $hiking): static
+    {
+        if (!$this->hiking->contains($hiking)) {
+            $this->hiking->add($hiking);
+            $hiking->setAgence($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHiking(hiking $hiking): static
+    {
+        if ($this->hiking->removeElement($hiking)) {
+            // set the owning side to null (unless already changed)
+            if ($hiking->getAgence() === $this) {
+                $hiking->setAgence(null);
+            }
+        }
 
         return $this;
     }

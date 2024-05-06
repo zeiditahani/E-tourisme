@@ -1,19 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    {% for d in data %}
-        {{ d.title }}
-        {{ d.description }}
-        {#{ d.detailed_description }#}
-        {{ d.included }}
-        {{ d.unincluded }}
-        {{ d.image }}
-        {# {{ d.images }}#}
-        {{ d.distance }}
-        {#  {{ d.category }} #}
-        {#  {{ d.service }} #}
-
-
-    {% endfor %}
+   
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
 
@@ -36,149 +23,8 @@
     <link rel="stylesheet" href="assets/css/plugins/plyr.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <a class="close_side_menu" href="javascript:void(0);"></a>
-    <!-- Start Banner Area  -->
-    <div class="rbt-banner-area rbt-banner-8 variation-03 section-bottom-overlay" id="home">
-        <div class="wrapper ">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-10 offset-lg-1">
-                        <div class="content">
-                            <div class="inner text-center">
-                                <div class="brand-area mt--60">
-       
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <div class="rbt-banner-area rbt-banner-8 variation-03 section-bottom-overlay" id="home">
-            <div class="banner-overlay-section">
-            <div class="container">
-                <div class="row row--15">
-                    <div class="col-lg-12">
-                        <div class="swiper team-slide-activation-4 rbt-arrow-between rbt-dot-bottom-center margin-top: 20px">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="team team-style--bottom variation-2">
-                                        <div class="thumbnail">
-                                            <a href="#"><img src="assets/images/team/team-04.jpg" alt="Blog Images"></a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="inner">
-                                                <h4 class="title"><a href="#">Aaron Griffe</a></h4>
-                                                <p class="designation">Depertment Head</p>
-                                            </div>
-                                            <div class="icon-right">
-                                                <a href="#"><i class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="team team-style--bottom variation-2">
-                                        <div class="thumbnail">
-                                            <a href="#"><img src="assets/images/team/team-05.jpg" alt="Blog Images"></a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="inner">
-                                                <h4 class="title"><a href="#">Aaron Griffe</a></h4>
-                                                <p class="designation">Teacher</p>
-                                            </div>
-                                            <div class="icon-right">
-                                                <a href="#"><i class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="team team-style--bottom variation-2">
-                                        <div class="thumbnail">
-                                            <a href="#"><img src="assets/images/team/team-06.jpg" alt="Blog Images"></a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="inner">
-                                                <h4 class="title"><a href="#">Joe Bidden</a></h4>
-                                                <p class="designation">Depertment Head</p>
-                                            </div>
-                                            <div class="icon-right">
-                                                <a href="#"><i class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="team team-style--bottom variation-2">
-                                        <div class="thumbnail">
-                                            <a href="#"><img src="assets/images/team/team-03.jpg" alt="Blog Images"></a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="inner">
-                                                <h4 class="title"><a href="#">John Due</a></h4>
-                                                <p class="designation">Marketing SR</p>
-                                            </div>
-                                            <div class="icon-right">
-                                                <a href="#"><i class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="team team-style--bottom variation-2">
-                                        <div class="thumbnail">
-                                            <a href="#"><img src="assets/images/team/team-02.jpg" alt="Blog Images"></a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="inner">
-                                                <h4 class="title"><a href="#">Joe Bidden</a></h4>
-                                                <p class="designation">Depertment Head</p>
-                                            </div>
-                                            <div class="icon-right">
-                                                <a href="#"><i class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="team team-style--bottom variation-2">
-                                        <div class="thumbnail">
-                                            <a href="#"><img src="assets/images/team/team-01.jpg" alt="Blog Images"></a>
-                                        </div>
-                                        <div class="content">
-                                            <div class="inner">
-                                                <h4 class="title"><a href="#">Jannen</a></h4>
-                                                <p class="designation">App Developer</p>
-                                            </div>
-                                            <div class="icon-right">
-                                                <a href="#"><i class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="rbt-swiper-arrow rbt-arrow-left">
-                                <div class="custom-overfolow">
-                                    <i class="rbt-icon feather-arrow-left"></i>
-                                    <i class="rbt-icon-top feather-arrow-left"></i>
-                                </div>
-                            </div>
-
-                            <div class="rbt-swiper-arrow rbt-arrow-right">
-                                <div class="custom-overfolow">
-                                    <i class="rbt-icon feather-arrow-right"></i>
-                                    <i class="rbt-icon-top feather-arrow-right"></i>
-                                </div>
-                            </div>
-
-
-                            <div class="rbt-swiper-pagination"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Banner Area  -->
+  
+    {{ render(controller('App\\Controller\\ImageshikingController::index')) }} 
     <!-- Start Card Style -->
     <div class="rbt-blog-area rbt-section-overlayping rbt-section-gapBottom">
         <div class="container">
@@ -194,10 +40,15 @@
                                 </a>
                             </div>
                             <div class="rbt-card-body">
-                                 <h5 class="rbt-card-title"><a href="blog-details.html">{{d.title}}</a>
+                                 <h5 class="rbt-card-title"><a href="#">{{d.title}}</a>
                                 </h5>
                                 <div class="rbt-card-bottom">
-                                    <a class="transparent-button" href="blog-details.html">{{d.distance}}</a>
+                                    <a class="transparent-button" href="#">{{d.distance}}</a>
+                                </div>
+                                <div class="rbt-card-bottom">
+                                    {%for region in d.regions%}
+                                    <a class="transparent-button" href="#">{{region}}</a>
+                                    {%endfor%}
                                 </div>
                                 <p>{{d.description}}</p>
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Controller\frontend;
 
 use App\Entity\Hiking;
+use App\Entity\Region;
 use App\Repository\HikingRepository;
 use App\Service\OfferService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,11 +26,11 @@ class HikingController extends AbstractController
               'data' => $hikingRepository->findAll(),
         ]);
     }
-    #[Route('/hiking{id_hiking}', name: 'app_showHiking',methods: 'GET')]
-    public function detailHiking(HikingRepository $hikingRepository): Response
+    #[Route('/hiking{id}', name: 'app_detailHiking',methods: 'GET')]
+    public function detailHiking(Hiking $hiking): Response
     {
         return $this->render('hiking/detailHiking.html.twig', [
-              'data' => $hikingRepository->findAll(),
+              'hiking' => $hiking,
         ]);
     }
 }

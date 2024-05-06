@@ -1,63 +1,64 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
+   
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+
+    <!-- CSS
+	============================================ -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/plugins/sal.css">
+    <link rel="stylesheet" href="assets/css/plugins/feather.css">
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/euclid-circulara.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnify.css">
+    <link rel="stylesheet" href="assets/css/plugins/odometer.css">
+    <link rel="stylesheet" href="assets/css/plugins/animation.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnigy-popup.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/plyr.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <a class="close_side_menu" href="javascript:void(0);"></a>
   
-    {% for d in data %}
-        {{ d.title }}
-        {{ d.description }}
-        {#{ d.detaileddescription }#}
-        {{ d.included }}
-        {{ d.unincluded }}
-        {{ d.image }}
-        {# {{ d.images }}#}
-        {#  {{ d.category }} #}
-        {#  {{ d.service }} #}
-        {#  {{ d.region }} #}
-        {#  {{ d.includedExcursions }} #}
-    {% endfor %}
-     <!-- Start Card Style -->
-    <div class="rbt-rbt-card-area rbt-section-gap bg-color-extra2">
+    {{ render(controller('App\\Controller\\ImagescruiseController::index')) }} 
+
+
+    <!-- Start Card Style -->
+    <div class="rbt-blog-area rbt-section-overlayping rbt-section-gapBottom">
         <div class="container">
-            <div class="row row--15 align-items-center mb--30">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2 class="title">Card Style Two</h2>
-                    </div>
-                </div>
-            </div>
             <!-- Start Card Area -->
-            {% for d in data %}
-            <div class="row row--15">
-                <!-- Start Single Card  -->
-                <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt--30" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800 ">
-                    <div class="rbt-card height-330 variation-02 rbt-hover">
-                        <div class="rbt-card-img">
-                            <a href="course-details.html">
-                                <img src="{{ asset('uploads/imgCruise/'~d.image)}}" alt="Card image">
-                                <div class="rbt-default-badge">
-                                    <span>Product Course</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="rbt-card-body">
-                            <h4 class="rbt-card-title"><a href="course-details.html">{{d.title}}</a>
-                            </h4>
-                            <p class="rbt-card-text">{{d.description}}</p>
-                            <div class="rbt-card-bottom">
-                                <a class="transparent-button" href="course-details.html">Learn
-                                    More</a>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 mt_dec--30">
+                    {% for d in data %}
+                    <!-- Start Single Card  -->
+                    <div class="rbt-card card-list variation-02 rbt-hover mt--30">
+                            <div class="rbt-card-img">
+                                <a href="blog-details.html">
+                                <img src="{{ asset('uploads/imgCruise/'~d.image)}}" alt={{d.title}}>
+                                </a>
                             </div>
-                        </div>
+                            <div class="rbt-card-body">
+                                 <h5 class="rbt-card-title"><a href="blog-details.html">{{d.title}}</a>
+                                </h5>
+                                <div class="rbt-card-bottom">
+                                    {% for region in d.regions %}
+                                        <a class="transparent-button" href="blog-details.html">{{ region }}</a>
+                                    {% endfor %}
+                                </div>                           
+                                <p>{{d.description}}</p>
+                            </div>
+                           
                     </div>
+                    <!-- End Single Card  -->
+                     {% endfor %}
                 </div>
-                {% endfor %}
-                <!-- End Single Card  -->
             </div>
-            <!-- End Card Area -->
         </div>
     </div>
-    <!-- End Card Style -->
-    
     <!-- JS
         ============================================ -->
             <!-- Modernizer JS -->
@@ -90,4 +91,6 @@
             <script src="assets/js/vendor/plyr.js"></script>
             <!-- Main JS -->
             <script src="assets/js/main.js"></script>
+
 {% endblock %}
+

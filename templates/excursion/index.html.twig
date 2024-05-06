@@ -1,12 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+
     {% for d in data %}
-        {{ d.title }}
-        {{ d.description }}
-        {{ d.detailed_description }}
-        {{ d.included }}
-        {{ d.unincluded }}
-        {{ d.image }}
+
     {% endfor %}
+   
+
+    <!-- Start Card Style -->
+    <div  class="rbt-tab-area bg-color-white rbt-section-gap">
+        <div class="container">   
+    <!-- Start Card Area -->
+    <div class="row g-5 mt--15">
+        <!-- Start Single Card  -->
+        {% for d in data %}
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <div class="rbt-card variation-02 rbt-hover">
+                <div class="rbt-card-img">
+                    <a href="blog-details.html">
+                        <img src="{{ asset('uploads/imgExcursion/'~d.image)}}" alt="{{d.title}}"> </a>
+                </div>
+                <div class="rbt-card-body">
+                    <h5 class="rbt-card-title"><a href="blog-details.html">{{d.title}}</a></h5>
+                    <p class="rbt-card-text">{{d.description}}</p>
+                    <div class="rbt-card-bottom">
+                        <a class="transparent-button" href="{{path('app_detailExcursion',{'id':d.id})}}">Voir Détail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- End Single Card  -->
+    </div>
+    <!-- End Card Area -->
+</div>
+</div>
+
 {% endblock %}
 

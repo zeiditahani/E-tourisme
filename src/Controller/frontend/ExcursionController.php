@@ -21,8 +21,16 @@ class ExcursionController extends AbstractController
     }
     public function limitedExcursion(ExcursionRepository $excursionRepository): Response
     {
+        $excursion = $excursionRepository->findByExampleField();
         return $this->render('excursion/limitedExcursion.html.twig', [
-            'data' => $excursionRepository->findAll(),
+            'data' => $excursion,
+        ]);
+    }
+    #[Route('/excursion{id}', name: 'app_detailExcursion',methods: 'GET')]
+    public function detailExcursion(Excursion $excursion): Response
+    {
+        return $this->render('excursion/detailExcursion.html.twig', [
+              'excursion' => $excursion,
         ]);
     }
 

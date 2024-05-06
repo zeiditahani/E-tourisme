@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\HikingRepository;
+use App\Repository\RegionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -40,17 +43,9 @@ class Hiking
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $distance = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $agency = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $category = null;
-
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
-    private ?array $services = null;
-
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
-    private ?array $regions = null;
 
     #[ORM\Column(type: Types::ARRAY, nullable: true)]
     private ?array $includedExcursions = null;
@@ -60,6 +55,19 @@ class Hiking
 
     #[ORM\Column(type: Types::ARRAY, nullable: true)]
     private ?array $goodAddresses = null;
+
+    #[ORM\OneToMany(mappedBy: 'hiking', targetEntity: Region::class, orphanRemoval: true )]
+    private Collection $regions;
+
+    #[ORM\ManyToOne(inversedBy: 'hiking',targetEntity: Agency::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Agency $agence = null;
+
+
+    public function __construct()
+    {
+        $this->regions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -162,17 +170,6 @@ class Hiking
         return $this;
     }
 
-    public function getAgency(): ?string
-    {
-        return $this->agency;
-    }
-
-    public function setAgency(?string $agency): static
-    {
-        $this->agency = $agency;
-
-        return $this;
-    }
 
     public function getCategory(): ?string
     {
@@ -186,29 +183,7 @@ class Hiking
         return $this;
     }
 
-    public function getServices(): ?array
-    {
-        return $this->services;
-    }
-
-    public function setServices(?array $services): static
-    {
-        $this->services = $services;
-
-        return $this;
-    }
-
-    public function getRegions(): ?array
-    {
-        return $this->regions;
-    }
-
-    public function setRegions(?array $regions): static
-    {
-        $this->regions = $regions;
-
-        return $this;
-    }
+   
 
     public function getIncludedExcursions(): ?array
     {
@@ -245,4 +220,50 @@ class Hiking
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, region>
+     */
+    public function getRegions(): Collection
+    {
+        return $this->regions;
+    }
+
+    public function addRegion(region $region): static
+    {
+        if (!$this->regions->contains($region)) {
+            $this->regions->add($region);
+            $region->setHiking($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRegion(region $region): static
+    {
+        if ($this->regions->removeElement($region)) {
+            // set the owning side to null (unless already changed)
+            if ($region->getHiking() === $this) {
+                $region->setHiking(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAgence(): ?Agency
+    {
+        return $this->agence;
+    }
+
+    public function setAgence(?Agency $agence): static
+    {
+        $this->agence = $agence;
+
+        return $this;
+    }
+
+   
+  
+
 }

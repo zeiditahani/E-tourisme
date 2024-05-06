@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!-- Start Course Banner Area  -->
+<div class="rbt-course-banner-area rbt-section-gap bg-color-white" id="guideline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner">
+                    <div class="section-title text-center mb--60">
+                        <h2 class="title"><span class="theme-gradient">Voyage organisé moins cher de Tunisie</span>  
+                            <br />Envie de découvrir le monde, vous êtes sur la bonne page faite le plain de voyage à prix imbattables</h2>
+                        <div class="rbt-button-group mt--30">
+                            <a class="rbt-btn hover-icon-reverse btn-border" href="{{path('app_travel')}}">
+                                <span class="icon-reverse-wrapper">
+                                    <span class="btn-text">Découvrire Tous Les Offres</span>
+                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row g-5">
+
+                        <!-- Start Single Feature Box  -->
+                        <div class="col-lg-12">
+                            <div class="modern-course-features-box one-colume-grid h-100">
+                                <div class="inner">
+                                    <div class="thumbnail">
+                                        <img src="{{ asset('uploads/imgTravel/'~travel.image)}}" alt="{{travel.title}}">
+                                    </div>
+                                    <div class="content">
+                                        <h2 class="title">{{travel.title}}</h2>
+                                        <p>{{travel.description}}</p>
+                                        <ul class="course-feature-list">
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="feather-check"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h4 class="featute-title">Included <span>{{travel.included}}</span></h4>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon">
+                                                    <i class="feather-xmark"></i>                                                   </div>
+                                                <div class="feature-content">
+                                                    <h4 class="featute-title">Unincluded<span>{{travel.unincluded}}</span></h4>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    {#
+                                    <div class="rbt-button-group mt--30">
+                                        <a class="rbt-btn btn-gradient hover-icon-reverse" href="">
+                                            
+                                            <span class="icon-reverse-wrapper">
+                                                <span class="btn-text">Voir Détail</span>
+                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            </span>
+                                        </a>
+                                    </div>   
+                                    #} 
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Feature Box  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Course Banner Area  -->
+{% endblock %}

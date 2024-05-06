@@ -21,20 +21,17 @@ class GoodAdressRepository extends ServiceEntityRepository
         parent::__construct($registry, GoodAdress::class);
     }
 
-//    /**
-//     * @return GoodAdress[] Returns an array of GoodAdress objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('g')
-//            ->andWhere('g.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('g.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return GoodAdress[] Returns an array of GoodAdress objects
+     */
+    public function findByExampleField(): array
+    {
+        return $this->createQueryBuilder('g')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?GoodAdress
 //    {

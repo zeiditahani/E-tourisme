@@ -15,7 +15,7 @@ class BlogController extends AbstractController
     public function listBlog(BlogRepository $blogRepository): Response
     {
         return $this->render('blog/index.html.twig', [
-            'blog' => $blogRepository->findAll() ,
+            'data' => $blogRepository->findAll() ,
 
         ]);
     }

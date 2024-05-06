@@ -1,49 +1,67 @@
 {% block body %}
 
     <!-- Start Hotel Area  -->
-
+        <div class="container">
             <div class="row g-5 align-items-end mb--60">
                 <div class="col-lg-6 col-md-12 col-12">
                     <div class="section-title text-start">
-                        <h2 class="title">Nos meilleurs Hôtels en Tunisie</h2>
+                        <h2 class="title" ><a href="{{path('app_hotel')}}">Nos meilleurs Hôtels en Tunisie</a></h2>
                         <p class="description mt--20">Réservez maintenant votre hôtel en temps réel.</p>
                     </div>
                 </div>
-                <!-- Start Card Area -->
-                <div class="row row--15 mt_dec--30">
-                                <!-- Start Single Card  -->
-                                {% for d in data %}
-                                <div class="col-xl-3 col-md-6 col-sm-6 col-12 mt--30">
-                                    <div class="rbt-flipbox">
-                                        <div class="rbt-flipbox-wrap rbt-service rbt-service-1 card-bg-2">
-                                            <div class="rbt-flipbox-front rbt-flipbox-face inner">
-                                                <div class="icon">
-                                                    <img src="assets/images/icons/card-icon-2.png" alt="{{ d.title }}">
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="title"><a href="#">{{ d.title }}</a></h5>
-                                                  {# <p>{{ d.address }}</p>#} 
-                                                    <a class="rbt-btn-link stretched-link" href="#">Learn More<i class="feather-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="rbt-flipbox-back rbt-flipbox-face inner">
-                                                <ul class="rbt-list-style-3 color-white">
-                                                    <li><i class="feather-youtube"></i> 370 Free Video</li>
-                                                    <li><i class="feather-book"></i> 120 Subjects</li>
-                                                    <li><i class="feather-video"></i> Live Class</li>
-                                                    <li><i class="feather-info"></i> MCQ and CQ Bank</li>
-                                                </ul>
-                                                <a class="rbt-btn rbt-switch-btn btn-white btn-sm" href="#">
-                                                    <span data-text="Learn More">Learn More</span>
-                                                </a>
-                                            </div>
-                                        </div>
+            </div>  
+            <!-- Start Card Area -->
+            <div class="row row--15">
+                <!-- Start Single Card  -->
+                {% for d in data %}
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--30" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                    <div class="rbt-card variation-01 rbt-hover">
+                        <div class="rbt-card-img">
+                            <a href="course-details.html">
+                                <img src="{{ asset('uploads/imgHotel/'~d.logo)}}" alt="{{ d.title }}">
+                            </a>
+                        </div>
+                        <div class="rbt-card-body">
+                            <div class="rbt-card-top">
+                                <div class="rbt-review">
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
+                                    <span class="rating-count"> (15 Reviews)</span>
                                 </div>
-                                {% endfor %}
-                                <!-- End Single Card  -->
+                                <div class="rbt-bookmark-btn">
+                                    <a class="rbt-round-btn" title="Bookmark" href="#"><i
+                                            class="feather-bookmark"></i></a>
+                                </div>
                             </div>
-                <!-- End Card Area -->
+
+                            <h4 class="rbt-card-title"><a href="course-details.html">{{ d.title }}</a>
+                            </h4>
+
+                            <ul class="rbt-meta">
+                                <li><i class="feather-map-pin"></i>{{d.region}}</li>
+                            </ul>
+
+                            <p class="rbt-card-text">{{d.adress}}</p>
+                            <div class="rbt-card-bottom">
+                                <div class="rbt-price">
+                                    <span class="current-price">$60</span>
+                                    <span class="off-price">$120</span>
+                                </div>
+                                <a class="rbt-btn-link" href="{{path('app_detailHotel',{'id':d.id})}}">Voir Détail<i class="feather-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- End Single Card  -->
+
             </div>
+            <!-- End Card Area -->  
+            <!-- Start Card Area -->
+        </div>    
 {% endblock %}

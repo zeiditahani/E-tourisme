@@ -20,31 +20,29 @@
     <!-- End Excursion -->
 
 
+    <!-- Start Travel -->
+    {{ render(controller('App\\Controller\\frontend\\TravelController::limitedTravel')) }}
+    <!-- End Travel --->
+
     <!-- Start Cruise -->
     {{ render(controller('App\\Controller\\frontend\\CruiseController::limitedCruise')) }}
     <!-- End Cruise -->
 
 
     <!-- Start Agency Area -->
-    {#{ render(controller('App\\Controller\\frontend\\AgencyController::limitedListAgency')) }#}
+    {{ render(controller('App\\Controller\\frontend\\AgencyController::limitedAgency')) }}
     <!-- End Agency Area -->
 
-
-    <!-- Start Travel -->
-    {{ render(controller('App\\Controller\\frontend\\TravelController::limitedTravel')) }}
-    <!-- End Travel --->
+    
+    {{ render(controller('App\\Controller\\frontend\\GoodAdressController::limitedGoodAddress')) }}
 
 
+  
+
+  
     <!-- Start Umrah -->
-    {#{ render(controller('App\\Controller\\frontend\\UmrahController::limitedUmrah')) }#}
+    {{ render(controller('App\\Controller\\frontend\\UmrahController::limitedUmrah')) }}
     <!-- End Umrah --->
-
-    {{ render(controller('App\\Controller\\frontend\\BlogController::widget')) }}
-
-
-    {{ render(controller('App\\Controller\\frontend\\GoodAdressController::index')) }}
-
-
 
 
     <div class="rbt-separator-mid">

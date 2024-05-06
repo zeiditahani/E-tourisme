@@ -10,6 +10,10 @@ use App\Entity\Excursion;
 use App\Entity\GoodAdress;
 use App\Entity\Hiking;
 use App\Entity\Hotel;
+use App\Entity\Images;
+use App\Entity\ImagesCruise;
+use App\Entity\Imageshiking;
+use App\Entity\Imgexcursion;
 use App\Entity\Region;
 use App\Entity\Travel;
 use App\Entity\Umrah;
@@ -55,18 +59,23 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Agency','fa fa-building-o', Agency::class);
         yield MenuItem::linkToCrud('Banner', 'fa fa-picture-o', Banner::class);
         yield MenuItem::linkToCrud('Blog', 'fa-solid fa-blog', Blog::class);
         yield MenuItem::linkToCrud('GoodAdress','fa-solid fa-location-dot', GoodAdress::class);
         yield MenuItem::linkToCrud('Hotel', 'fa-solid fa-hotel ', Hotel::class);
-        yield MenuItem::linkToCrud('User', 'fa-solid fa-user', User::class);
+        //yield MenuItem::linkToCrud('User', 'fa-solid fa-user', User::class);
         yield MenuItem::linkToCrud('Cruise','fa-solid fa-ship', Cruise::class);
+        yield MenuItem::linkToCrud('ImageeCruise', 'fas fa-image	',ImagesCruise::class);
         yield MenuItem::linkToCrud('Excursion', 'fas fa-bus-alt',Excursion::class);
+        yield MenuItem::linkToCrud('ImgExcursion', 'fas fa-image	',Imgexcursion::class);
         yield MenuItem::linkToCrud('Umrah', 'fas fa-kaaba	',Umrah::class);
         yield MenuItem::linkToCrud('Travel', 'fas fa-plane',Travel::class);
+        yield MenuItem::linkToCrud('Agency','fa fa-building-o', Agency::class);
         yield MenuItem::linkToCrud('Region', 'fas fa-map-marked-alt	',Region::class);
+        yield MenuItem::linkToCrud('ImagesHiking', 'fas fa-image	',Imageshiking::class);
         yield MenuItem::linkToCrud('Hiking', 'fas fa-hiking	',Hiking::class);
+        yield MenuItem::linkToCrud('Images', 'fas fa-image	',Images::class);
+
 
 
 
